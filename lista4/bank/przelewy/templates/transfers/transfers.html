@@ -1,0 +1,16 @@
+{% extends "transfers/base.html" %}
+{% block title %}Lista przelewów{% endblock %}
+{% block content %}
+{% if not out_transfer_list.exists %}
+brak przelewów od ciebie.
+{% endif %}
+{% for tr in out_transfer_list %}
+<li>{{tr}}</li>
+{% endfor %}
+{% if not in_transfer_list.exists %}
+brak przelewów do ciebie.
+{% endif %}
+{% for tr in in_transfer_list %}
+<li>{{tr}}</li>
+{% endfor %}
+{% endblock %}

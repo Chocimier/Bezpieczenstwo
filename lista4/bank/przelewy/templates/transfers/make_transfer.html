@@ -1,0 +1,25 @@
+{% extends "transfers/base.html" %}
+{% block title %}Potwierdź dane przelewu{% endblock %}
+{% block content %}
+<form method="post" action="{% url 'make_transfer_target' %}">
+{% csrf_token %}
+<p>Potwierdź dane:</p>
+<table>
+<tr>
+    <td>Z konta:</td>
+	<td>{{ source }}</td>
+</tr>
+<tr>
+    <td>Na konto:</td>
+	<td>{{ target }}</td>
+</tr>
+<tr>
+    <td>Kwota:</td>
+	<td>{{ amount }}</td>
+</tr>
+</table>
+
+<input type="hidden" name="id" value="{{ id }}"/>
+<input type="submit" value="Dalej" />
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "transfers/base.html" %}
+{% block title %}Potwierdź dane przelewu{% endblock %}
+{% block content %}
+<p>Wykonano przelew:</p>
+<table>
+<tr>
+    <td>Z konta:</td>
+	<td>{{ source }}</td>
+</tr>
+<tr>
+    <td>Na konto:</td>
+	<td>{{ target }}</td>
+</tr>
+<tr>
+    <td>Kwota:</td>
+	<td>{{ amount }}</td>
+</tr>
+<tr>
+    <td>Data:</td>
+	<td>{{ date }}</td>
+</tr>
+</table>
+
+{% endblock %}

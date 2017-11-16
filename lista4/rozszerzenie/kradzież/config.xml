@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="226fc039-c5e4-476c-b441-bc4e0b70017c" version="1.0">
+  <name>Kradzież</name>
+  <access origin="*"/>
+  <author href="chocimier@tlen.pl">Piotr Wójcik</author>
+  <description xml:lang="pl">Przekierowuje przelewy na wskazane konto</description>
+</widget>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>{% block title %}Bank{% endblock %}</title>
+</head>
+<body>
+	<nav>
+	<a href="{% url 'index' %}">Strona główna</a>
+	{% if request.user.is_authenticated %}
+	Konto {{ request.user.username }}
+	<a href="{% url 'transfer_form' %}">Zrób przelew</a>
+	<a href="{% url 'transfers' %}">Lista przelewów</a>
+	<a href="{% url 'logout' %}">Wyloguj się</a>
+	{% else %}
+	<a href="{% url 'login' %}">Zaloguj się</a>
+	{% endif %}
+	</nav>	
+	{% block content %}{% endblock %}
+</body>
+</html>

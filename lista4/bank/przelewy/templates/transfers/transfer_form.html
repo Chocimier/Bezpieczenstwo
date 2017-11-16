@@ -1,0 +1,23 @@
+{% extends "transfers/base.html" %}
+{% block title %}Dane do przelewu{% endblock %}
+{% block content %}
+<form method="post" action="{% url 'transfer_form_target' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>Z konta:</td>
+	<td>{{ request.user.username }}<input type="hidden" name="source" value="{{ request.user.username }}"/></td>
+</tr>
+<tr>
+    <td>Na konto:</td>
+    <td><input type="text" name="target"/></td>
+</tr>
+<tr>
+    <td>Kwota:</td>
+    <td><input type="text" name="amount"/></td>
+</tr>
+</table>
+
+<input type="submit" value="Dalej" />
+</form>
+{% endblock %}
