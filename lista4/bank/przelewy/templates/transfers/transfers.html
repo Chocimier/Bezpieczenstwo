@@ -1,6 +1,18 @@
 {% extends "transfers/base.html" %}
 {% block title %}Lista przelewów{% endblock %}
 {% block content %}
+<form method="post" action="{% url 'transfers_with' %}">
+{% csrf_token %}
+<p>Znajdź przelewy:</p>
+<table>
+<tr>
+    <td>Kontrahent:</td>
+    <td><input type="text" name="transactor"/></td>
+</tr>
+</table>
+
+<input type="submit" value="Dalej" />
+</form>
 {% if not out_transfer_list.exists %}
 brak przelewów od ciebie.
 {% endif %}

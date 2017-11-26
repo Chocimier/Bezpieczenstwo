@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^znajdz_przelewy/$', views.transfers_with, name='transfers_with'),
     url(r'^przelewy/', views.transfers, name='transfers'),
     url(r'^dane_przelewu/', views.transfer_form, name='transfer_form'),
     url(r'^wyslij_dane/', views.transfer_form_target, name='transfer_form_target'),
