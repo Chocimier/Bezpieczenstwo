@@ -16,7 +16,7 @@ def build_unconfirmed_transfer(request):
     return transfer
 
 def build_transfer(request):
-    from .models import UnconfirmedTransfer, Transfer
+    from .models import UnconfirmedTransfer
     try:
         unconfirmed_id = request.POST['id']
         unconfirmed_transfer = UnconfirmedTransfer.objects.get(id=unconfirmed_id)
@@ -24,11 +24,16 @@ def build_transfer(request):
         return None
     if unconfirmed_transfer.source != request.user.username:
         return None
+    return confirm_transfer(unconfirmed_transfer)
+
+def confirm_transfer(unconfirmed_transfer):
+    from .models import Transfer
     transfer = Transfer()
     transfer.source = unconfirmed_transfer.source
     transfer.target = unconfirmed_transfer.target
     transfer.amount = unconfirmed_transfer.amount
     transfer.save()
+    unconfirmed_transfer.delete()
     return transfer
 
 def render_value(value):
