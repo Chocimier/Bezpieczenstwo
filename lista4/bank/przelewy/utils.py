@@ -23,7 +23,7 @@ def build_transfer(request):
         unconfirmed_transfer = UnconfirmedTransfer.objects.get(id=unconfirmed_id)
     except (UnconfirmedTransfer.DoesNotExist, KeyError):
         return None
-    if unconfirmed_transfer.source != request.user.username:
+    if unconfirmed_transfer.source != request.user.username and not request.user.is_staff:
         return None
     return confirm_transfer(unconfirmed_transfer)
 

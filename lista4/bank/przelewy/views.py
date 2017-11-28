@@ -44,7 +44,7 @@ def make_transfer(request, unconfirmed_id):
         transfer = UnconfirmedTransfer.objects.get(id=unconfirmed_id)
     except UnconfirmedTransfer.DoesNotExist:
         return HttpResponseRedirect(reverse('index'))
-    if transfer.source != request.user.username:
+    if transfer.source != request.user.username and not request.user.is_staff:
         return HttpResponseRedirect(reverse('index'))
     return render(request, 'transfers/make_transfer.html', {'id': unconfirmed_id, 'source': transfer.source, 'target': transfer.target, 'amount': transfer.amount})
 
