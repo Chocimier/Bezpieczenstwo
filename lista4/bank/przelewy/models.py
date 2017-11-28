@@ -6,6 +6,7 @@ class Transfer(models.Model):
     source = models.CharField(max_length=200)
     target = models.CharField(max_length=200)
     amount = models.DecimalField(max_digits=20, decimal_places=15)
+    title = models.TextField(default='Przelew')
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -15,6 +16,7 @@ class UnconfirmedTransfer(models.Model):
     source = models.CharField(max_length=200)
     target = models.CharField(max_length=200)
     amount = models.DecimalField(max_digits=20, decimal_places=15)
+    title = models.TextField(default='Przelew')
 
     def __str__(self):
         return '{} -> {}, {} zł'.format(self.source, self.target, self.amount)
