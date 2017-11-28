@@ -1,0 +1,10 @@
+GET /dane_przelewu HTTP/1.1
+Host: 127.0.0.1:8000
+Accept-Encoding: gzip
+Connection: keep-alive
+User-Agent: Mozilla/5.0 SF/2.10b
+Range: bytes=0-399999
+Referer: http://127.0.0.1/
+Host: -->">'>'"<sfi000008v293924>
+Cookie: sessionid=""; csrftoken=ePy9Hq4GW871BQStRiI2flhBJSRhFEtNIk7WmstJe3UVFvo0frbU1nCWfUAhgF7C
+

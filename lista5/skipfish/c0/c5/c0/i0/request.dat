@@ -1,0 +1,13 @@
+POST /wyslij_dane/ HTTP/1.1
+Host: 127.0.0.1:8000
+Accept-Encoding: gzip
+Connection: keep-alive
+User-Agent: Mozilla/5.0 SF/2.10b
+Range: bytes=0-399999
+Referer: http://127.0.0.1/
+Host: -->">'>'"<sfi000134v293924>
+Cookie: sessionid=""; csrftoken=ePy9Hq4GW871BQStRiI2flhBJSRhFEtNIk7WmstJe3UVFvo0frbU1nCWfUAhgF7C
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 116
+
+csrfmiddlewaretoken=NLQ3fg9mazm5xt7LZZJIE2HmD6HFasLqhgpQUiypsu9ZB8Din8cAq42H98qFLtpf&source=271828&target=1&amount=1

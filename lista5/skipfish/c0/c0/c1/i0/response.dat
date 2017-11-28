@@ -1,0 +1,66 @@
+HTTP/1.1 200 OK
+Date: Sun, 26 Nov 2017 12:26:52 GMT
+Server: WSGIServer/0.2 CPython/3.6.3
+Content-Type: text/html; charset=utf-8
+Expires: Sun, 26 Nov 2017 12:26:52 GMT
+Cache-Control: max-age=0, no-cache, no-store, must-revalidate
+Vary: Cookie
+X-Frame-Options: SAMEORIGIN
+Content-Length: 1663
+Set-Cookie: csrftoken=ePy9Hq4GW871BQStRiI2flhBJSRhFEtNIk7WmstJe3UVFvo0frbU1nCWfUAhgF7C; expires=Sun, 25-Nov-2018 12:26:52 GMT; Max-Age=31449600; Path=/
+Set-Cookie: sessionid=""; expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/
+
+<!DOCTYPE html>
+
+<html lang="pl-PL" >
+<head>
+<title>Zaloguj się | Administracja stroną Django</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+
+
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class=" login"
+  data-admin-utc-offset="3600">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">Administracja Django</a></h1>
+
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        
+        
+
+
+
+
+<div id="content-main">
+
+
+
+<form action="/admin/login/" method="post" id="login-form"

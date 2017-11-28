@@ -1,0 +1,7 @@
+HTTP/1.1 400 Bad Request
+Date: Sun, 26 Nov 2017 12:06:17 GMT
+Server: WSGIServer/0.2 CPython/3.6.3
+Content-Type: text/html
+Set-Cookie: sessionid=""; expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/
+
+<h1>Bad Request (400)</h1>(z¦‚ž

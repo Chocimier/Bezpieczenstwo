@@ -1,0 +1,8 @@
+HTTP/1.1 404 Not Found
+Date: Sun, 26 Nov 2017 12:05:59 GMT
+Server: WSGIServer/0.2 CPython/3.6.3
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Content-Length: 81
+
+<h1>Not Found</h1><p>The requested URL /sfi9876 was not found on this server.</p>

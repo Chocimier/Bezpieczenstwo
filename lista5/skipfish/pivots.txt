@@ -1,0 +1,26 @@
+GET http://127.0.0.1:8000/ name=http://127.0.0.1:8000/ type=serv linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=302 notes=9 sig=0x60d4c2b2
+GET http://127.0.0.1:8000/admin/ name=admin type=dir linked=yes browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=2 sig=0x1363e82d
+GET http://127.0.0.1:8000/admin/auth/ name=auth type=dir linked=no browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=3 sig=0x1f1491b
+GET http://127.0.0.1:8000/admin/auth/group/ name=group type=dir linked=no browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=4 sig=0xfff80501
+GET http://127.0.0.1:8000/admin/auth/user/ name=user type=dir linked=no browsers=0 browser_used=FAST dup=1 code=302 len=0 notes=4 sig=0xfff80501
+GET http://127.0.0.1:8000/admin/login/ name=login type=dir linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=1663 notes=3 sig=0xd741227b
+POST http://127.0.0.1:8000/admin/login/ DATA:csrfmiddlewaretoken=RgI971H6z9mrszKU16LoXcIlQdU4wHDmlLhWM369R49lwegrpfegJe3GmfD47Ihb&username=Smith&password=skipfish&next=/admin/ name=csrfmiddlewaretoken type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=1860 notes=2 sig=0xffbd3566
+GET http://127.0.0.1:8000/admin/login/?next=/admin/ name=next type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=1676 notes=1 sig=0xffbed5cd
+POST http://127.0.0.1:8000/admin/login/ DATA:csrfmiddlewaretoken=RgI971H6z9mrszKU16LoXcIlQdU4wHDmlLhWM369R49lwegrpfegJe3GmfD47Ihb&username=Smith&password=skipfish&next=/admin/ name=password type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=1860 notes=2 sig=0xffbd3566
+POST http://127.0.0.1:8000/admin/login/ DATA:csrfmiddlewaretoken=RgI971H6z9mrszKU16LoXcIlQdU4wHDmlLhWM369R49lwegrpfegJe3GmfD47Ihb&username=Smith&password=skipfish&next=/admin/ name=username type=param linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=1860 notes=2 sig=0xffbd3566
+GET http://127.0.0.1:8000/admin/logout/ name=logout type=dir linked=no browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=3 sig=0xfff936eb
+GET http://127.0.0.1:8000/admin/przelewy/ name=przelewy type=dir linked=no browsers=0 browser_used=FAST dup=1 code=302 len=0 notes=3 sig=0xfff936eb
+GET http://127.0.0.1:8000/static/ name=static type=dir linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=404 len=81 notes=2 sig=0xe6c58767
+GET http://127.0.0.1:8000/static/admin/ name=admin type=dir linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=404 len=87 notes=2 sig=0xfe01b6ec
+GET http://127.0.0.1:8000/static/admin/css/ name=css type=dir linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=404 len=91 notes=2 sig=0xf446260d
+GET http://127.0.0.1:8000/static/admin/css/base.css name=base.css type=unknown linked=yes browsers=0 browser_used=FAST dup=0 returns_404 code=404 len=99 notes=0 sig=0xffdfffff
+GET http://127.0.0.1:8000/static/admin/css/login.css name=login.css type=unknown linked=yes browsers=0 browser_used=FAST dup=1 returns_404 code=404 len=100 notes=0 sig=0xffdfffff
+GET http://127.0.0.1:8000/zaloguj name=zaloguj type=file linked=yes browsers=0 browser_used=FAST dup=0 code=301 len=0 notes=1 sig=0x3187496b
+GET http://127.0.0.1:8000/zaloguj?next=/wyslij_dane/ name=next type=param linked=yes browsers=0 browser_used=FAST dup=0 code=301 len=0 notes=1 sig=0xffbed5cd
+GET http://127.0.0.1:8000/dane_przelewu name=dane_przelewu type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=809 notes=4 sig=0x172fd600
+GET http://127.0.0.1:8000/przelewy name=przelewy type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=200 len=426 notes=1 sig=0xffeed5cd
+GET http://127.0.0.1:8000/wyslij_dane name=wyslij_dane type=pathinfo linked=yes browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=1 sig=0x517a8cd9
+POST http://127.0.0.1:8000/wyslij_dane/ DATA:csrfmiddlewaretoken=NLQ3fg9mazm5xt7LZZJIE2HmD6HFasLqhgpQUiypsu9ZB8Din8cAq42H98qFLtpf&source=271828&target=1&amount=1 name=amount type=param linked=yes browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=1 sig=0xffbed5cd
+POST http://127.0.0.1:8000/wyslij_dane/ DATA:csrfmiddlewaretoken=NLQ3fg9mazm5xt7LZZJIE2HmD6HFasLqhgpQUiypsu9ZB8Din8cAq42H98qFLtpf&source=271828&target=1&amount=1 name=csrfmiddlewaretoken type=param linked=yes browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=1 sig=0xffbed5cd
+POST http://127.0.0.1:8000/wyslij_dane/ DATA:csrfmiddlewaretoken=NLQ3fg9mazm5xt7LZZJIE2HmD6HFasLqhgpQUiypsu9ZB8Din8cAq42H98qFLtpf&source=271828&target=1&amount=1 name=source type=param linked=yes browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=1 sig=0xffbed5cd
+POST http://127.0.0.1:8000/wyslij_dane/ DATA:csrfmiddlewaretoken=NLQ3fg9mazm5xt7LZZJIE2HmD6HFasLqhgpQUiypsu9ZB8Din8cAq42H98qFLtpf&source=271828&target=1&amount=1 name=target type=param linked=yes browsers=0 browser_used=FAST dup=0 code=302 len=0 notes=1 sig=0xffbed5cd

@@ -1,0 +1,36 @@
+HTTP/1.1 200 OK
+Date: Sun, 26 Nov 2017 12:06:15 GMT
+Server: WSGIServer/0.2 CPython/3.6.3
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+Content-Length: 426
+Vary: Cookie
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Lista przelewów</title>
+</head>
+<body>
+	<nav>
+	<a href="/">Strona główna</a>
+	
+	Konto 271828
+	<a href="/dane_przelewu/">Zrób przelew</a>
+	<a href="/przelewy/">Lista przelewów</a>
+	<a href="/wyloguj/">Wyloguj się</a>
+	
+	</nav>	
+	
+
+brak przelewów od ciebie.
+
+
+
+
+<li>314159 -&gt; 271828, 30.000000000000000 zł, 16 listopada 2017 07:37</li>
+
+
+</body>
+</html>

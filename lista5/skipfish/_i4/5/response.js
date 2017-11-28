@@ -1,0 +1,1 @@
+var res = {'data':'HTTP/1.1 400 Bad Request\x0aDate: Sun, 26 Nov 2017 18:30:51 GMT\x0aServer: WSGIServer/0.2 CPython/3.6.3\x0aContent-Type: text/html\x0aSet-Cookie: sessionid=\x22\x22; expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/\x0a\x0a\x3ch1\x3eBad Request (400)\x3c/h1\x3e\xe0y\xa6\x82\x9e'}

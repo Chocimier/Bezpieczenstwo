@@ -1,0 +1,101 @@
+HTTP/1.1 200 OK
+Date: Sun, 26 Nov 2017 18:28:34 GMT
+Server: WSGIServer/0.2 CPython/3.6.3
+Content-Type: text/html; charset=utf-8
+Expires: Sun, 26 Nov 2017 18:28:34 GMT
+Cache-Control: max-age=0, no-cache, no-store, must-revalidate
+Vary: Cookie
+X-Frame-Options: SAMEORIGIN
+Content-Length: 1860
+Set-Cookie: csrftoken=ePy9Hq4GW871BQStRiI2flhBJSRhFEtNIk7WmstJe3UVFvo0frbU1nCWfUAhgF7C; expires=Sun, 25-Nov-2018 18:28:34 GMT; Max-Age=31449600; Path=/
+Set-Cookie: sessionid=""; expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/
+
+<!DOCTYPE html>
+
+<html lang="pl-PL" >
+<head>
+<title>Zaloguj się | Administracja stroną Django</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+
+
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class=" login"
+  data-admin-utc-offset="3600">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="/admin/">Administracja Django</a></h1>
+
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+    
+        
+    
+
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        
+        
+
+
+
+
+<p class="errornote">
+    Wprowadź poprawne dane w polach „użytkownik” i „hasło” dla konta należącego do zespołu. Uwaga: wielkość liter może mieć znaczenie.
+</p>
+
+
+
+<div id="content-main">
+
+
+
+<form action="/admin/login/" method="post" id="login-form"><input type='hidden' name='csrfmiddlewaretoken' value='sAlQTXWy4mvpqqFN38ILqZCp5IdwviZLW5UDyZlBmhiju5bkrhbDc1XKBKWw6jDA' />
+  <div class="form-row">
+    
+    <label class="required" for="id_username">Użytkownik:</label> <input type="text" name="username" value="Smith" autofocus maxlength="254" required id="id_username" />
+  </div>
+  <div class="form-row">
+    
+    <label class="required" for="id_password">Hasło:</label> <input type="password" name="password" required id="id_password" />
+    <input type="hidden" name="next" value="/admin/" />
+  </div>
+  
+  
+  <div class="submit-row">
+    <label>&nbsp;</label><input type="submit" value="Zaloguj się" />
+  </div>
+</form>
+
+</div>
+
+        
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

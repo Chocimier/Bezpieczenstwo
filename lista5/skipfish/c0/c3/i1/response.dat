@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+Date: Sun, 26 Nov 2017 12:06:15 GMT
+Server: WSGIServer/0.2 CPython/3.6.3
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+Vary: Cookie
+Content-Length: 809
+Set-Cookie: csrftoken=ePy9Hq4GW871BQStRiI2flhBJSRhFEtNIk7WmstJe3UVFvo0frbU1nCWfUAhgF7C; expires=Sun, 25-Nov-2018 12:06:15 GMT; Max-Age=31449600; Path=/
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Dane do przelewu</title>
+</head>
+<body>
+	<nav>
+	<a href="/">Strona główna</a>
+	
+	Konto 271828
+	<a href="/dane_przelewu/">Zrób przelew</a>
+	<a href="/przelewy/">Lista przelewów</a>
+	<a href="/wyloguj/">Wyloguj się</a>
+	
+	</nav>	
+	
+<form method="post" action="/wyslij_dane/"
