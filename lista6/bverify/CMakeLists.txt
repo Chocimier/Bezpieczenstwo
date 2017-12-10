@@ -8,6 +8,7 @@ set(project_src
 project(${project_name})
 add_executable(${project_name} ${project_src})
 set_property(TARGET ${project_name} PROPERTY CXX_STANDARD 11)
+qt5_use_modules(${project_name} ${qt_modules})
 add_definitions(${blind_DEFINITIONS})
 include_directories(${blind_INCLUDE_DIRS})
 target_link_libraries(${project_name} blind)

@@ -28,7 +28,7 @@ public:
 bool coprime(const Bigint &a, const Bigint &b);
 Bigint gcd(Bigint a, Bigint b);
 Key generate_key(const int &lenght = 2048);
-std::string generate_password();
+std::string generate_password(int length);
 Bigint generate_prime(const int &lenght);
 std::string hash_func(const std::string &string);
 bool miller_rabin_test(const Bigint &candidate, const Bigint &cycles);

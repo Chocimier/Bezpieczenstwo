@@ -15,6 +15,10 @@ int main()
 		Bigint message;
 		input >> message;
 		std::getline(std::cin, line);
+		if (line.empty())
+		{
+			break;
+		}
 		input = std::istringstream(line);
 		Bigint sign;
 		input >> sign;

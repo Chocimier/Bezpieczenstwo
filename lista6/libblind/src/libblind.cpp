@@ -2,6 +2,8 @@
 #include <random>
 #include <fstream>
 
+#include <QtCore/QCryptographicHash>
+
 #include "../include/libblind.h"
 
 static std::random_device rd;
@@ -87,11 +89,10 @@ Key generate_key(const int &length)
 	return key;
 }
 
-std::string generate_password()
+std::string generate_password(int length)
 {
 	std::string password;
-	//TODO: parametrize length
-	for (int i = 0; i < 20; ++i)
+	for (int i = 0; i < length; ++i)
 	{
 		password.push_back(static_cast<char>(unif_int(re, rand_range('!', '~'))));
 	}
@@ -101,18 +102,29 @@ std::string generate_password()
 Bigint generate_prime(const int &length)
 {
 	Bigint random;
+	int i = 0;
 	do
 	{
+		nextrandom:
 		random = boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-1));
 		random += random_bigint(0, boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-2)))*2;
 		random += 1;
-	} while (!miller_rabin_test(random, Bigint(3)*length));
+		for (int j: {3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,67,71,73,79,83,89,97})
+		{
+			if (random % j == 0)
+			{
+				goto nextrandom;
+			}
+		}
+	} while (!miller_rabin_test(random, 40));
 	return random;
 }
 
 std::string hash_func(const std::string &string)
 {
-	return std::to_string(string.length());
+	QCryptographicHash hasher(QCryptographicHash::Sha3_512);
+	hasher.addData(string.data(), static_cast<int>(string.size()));
+	return hasher.result().toHex().toStdString();
 }
 
 bool miller_rabin_test(const Bigint &candidate, const Bigint &cycles)
