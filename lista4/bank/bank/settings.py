@@ -25,7 +25,7 @@ SECRET_KEY = '*lb30v$=8naa+(q_#=i94cz_70#(1myd%j4-s)7-kl_47qocl3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.mojwspanialybank.com']
 
 
 # Application definition
