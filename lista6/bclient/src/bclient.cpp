@@ -73,6 +73,10 @@ int main(int argc, char **argv)
 		Bigint last = key.n-1;
 		std::cout << "Podaj liczbę do podpisania: " << std::flush;
 		std::getline(std::cin, line);
+		if (line.empty())
+		{
+			continue;
+		}
 		Bigint m;
 		std::istringstream(line) >> m;
 		Bigint r = random_bigint(1, key.n-1);

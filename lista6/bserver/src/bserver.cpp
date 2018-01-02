@@ -16,6 +16,7 @@
 
 static const std::string SETUP_MODE("setup");
 static const std::string SIGN_SERVICE_MODE("signservice");
+static const std::string application_description("Serwer ślepych podpisów");
 
 static std::random_device rd;
 static std::mt19937_64 re(rd());
@@ -23,6 +24,7 @@ static std::uniform_int_distribution<size_t> unif_int;
 
 static struct {
 	std::string mode;
+	std::string generator;
 	int key_length = 2048;
 	std::string private_key = "prywatny.txt";
 	std::string public_key = "publiczny.txt";
@@ -34,7 +36,7 @@ static struct {
 
 void main_setup()
 {
-	Key key = generate_key(program_options.key_length);
+	Key key = generate_key(program_options.key_length, program_options.generator);
 	std::ofstream priv(program_options.private_key);
 	key.write(priv, program_options.private_key_mode);
 	std::ofstream publ(program_options.public_key);
@@ -71,17 +73,22 @@ void main_sign_service()
 		std::cerr << "Słuchaj, dzieweczko! - Ona nie słucha" << std::endl;
 		return;
 	}
-	QEventLoop().exec();
 }
 
 int main(int argc, char **argv)
 {
 	QCoreApplication app(argc, argv);
 	QCommandLineParser parser;
-	parser.setApplicationDescription("Serwer ślepych podpisów");
+	parser.setApplicationDescription(QString::fromStdString(application_description));
 	parser.addHelpOption();
 	parser.addOptions({
 		{{"m", "mode"}, QString::fromStdString("tryb pracy: " + SETUP_MODE + " lub " + SIGN_SERVICE_MODE), "tryb"},
+		{{"g", "generator"}, QString::fromStdString("generator liczb pierwszych. jedna za wartości:\n"
+				"\t" + SIMPLE_GENERATOR + "\n"
+				"\t" + RHO_SAFE_GENERATOR + "\n"
+				//"\t" + P_MIN_1_WEAK_GENERATOR + "\n"
+			), "generator"},
+
 		{{"l", "key-length"}, "długość klucza w bitach", "długość"},
 		{{"d", "private-key"},
 			"w trybie setup: plik, do którego zostanie zapisany klucz prywatny\n"
@@ -97,11 +104,11 @@ int main(int argc, char **argv)
 		{"primes", "zapisuje do pliku z kluczem prywatnym również liczby pierwsze"},
 		{"password-length", "liczba znaków hasła", "długość"},
 		{{"p", "port"}, "port, na którym serwer nasłuchuje wiadmości do podpisania", "port"},
-		//{{"", ""}, ""},
 	});
 	parser.process(app);
 
 	if (parser.isSet("mode")) {program_options.mode = parser.value("mode").toStdString();}
+	if (parser.isSet("generator")) {program_options.generator = parser.value("generator").toStdString();}
 	if (parser.isSet("key-length")) {program_options.key_length = parser.value("key-length").toInt();}
 	if (parser.isSet("private-key")) {program_options.private_key = parser.value("private-key").toStdString();}
 	if (parser.isSet("public-key")) {program_options.public_key = parser.value("public-key").toStdString();}
@@ -117,6 +124,7 @@ int main(int argc, char **argv)
 	else if (program_options.mode == SIGN_SERVICE_MODE)
 	{
 		main_sign_service();
+		QCoreApplication::exec();
 	}
 	else
 	{

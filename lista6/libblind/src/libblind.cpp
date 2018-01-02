@@ -10,6 +10,10 @@ static std::random_device rd;
 static std::mt19937_64 re(rd());
 static std::uniform_int_distribution<size_t> unif_int;
 
+const std::string SIMPLE_GENERATOR("simple");
+const std::string RHO_SAFE_GENERATOR("rho-safe");
+const std::string P_MIN_1_WEAK_GENERATOR("p-1-weak");
+
 Key Key::read(std::istream &istream)
 {
 	Key key;
@@ -75,12 +79,12 @@ Bigint gcd(Bigint a, Bigint b)
 	return a;
 }
 
-Key generate_key(const int &length)
+Key generate_key(const int &length, const std::string &generator)
 {
 	Key key;
 	//TODO: make them different length
-	key.p = generate_prime(length / 2);
-	key.q = generate_prime(length / 2);
+	key.p = generate_prime(length / 2, generator);
+	key.q = generate_prime(length / 2, generator);
 	//TODO: check n's length
 	key.n = key.p*key.q;
 	key.e = (1 << 16) + 1;
@@ -99,26 +103,53 @@ std::string generate_password(int length)
 	return password;
 }
 
-Bigint generate_prime(const int &length)
+Bigint generate_prime(const int &length, const std::string &generator)
+{
+	if (generator == RHO_SAFE_GENERATOR)
+	{
+		return rho_safe_generate_prime(length);
+	}
+	else
+	{
+		return simple_generate_prime(length);
+	}
+}
+
+Bigint simple_generate_prime(const int &length)
 {
 	Bigint random;
-	int i = 0;
 	do
 	{
-		nextrandom:
 		random = boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-1));
 		random += random_bigint(0, boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-2)))*2;
 		random += 1;
-		for (int j: {3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,67,71,73,79,83,89,97})
-		{
-			if (random % j == 0)
-			{
-				goto nextrandom;
-			}
-		}
 	} while (!miller_rabin_test(random, 40));
 	return random;
 }
+
+Bigint rho_safe_generate_prime(const int &length)
+{
+	Bigint random;
+	do
+	{
+		random = boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-1));
+		random += random_bigint(0, boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-2)))*2;
+		random += 1;
+	} while (!miller_rabin_test(random, 40) || !miller_rabin_test((random-1)/2, 40));
+	return random;
+}
+
+//Bigint p_min_1_weeak_generate_prime(const int &length)
+//{
+	//Bigint random;
+	//do
+	//{
+		//random = boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-1));
+		//random += random_bigint(0, boost::multiprecision::pow(Bigint(2), static_cast<unsigned>(length-2)))*2;
+		//random += 1;
+	//} while (!miller_rabin_test(random, 40) || !miller_rabin_test((random-1)/2, 40));
+	//return random;
+//}
 
 std::string hash_func(const std::string &string)
 {
@@ -127,8 +158,24 @@ std::string hash_func(const std::string &string)
 	return hasher.result().toHex().toStdString();
 }
 
+bool glance_nonprime_test(const Bigint &candidate)
+{
+	for (int j: {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,67,71,73,79,83,89,97})
+	{
+		if (candidate % j == 0)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 bool miller_rabin_test(const Bigint &candidate, const Bigint &cycles)
 {
+	if (glance_nonprime_test(candidate))
+	{
+		return false;
+	}
 	Bigint d = candidate - 1;
 	Bigint s = 0;
 	Bigint a;

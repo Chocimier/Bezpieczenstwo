@@ -25,11 +25,17 @@ public:
 	void write(std::ostream &ostream, Mode mode) const;
 };
 
+extern const std::string SIMPLE_GENERATOR;
+extern const std::string RHO_SAFE_GENERATOR;
+extern const std::string P_MIN_1_WEAK_GENERATOR;
+
+Bigint simple_generate_prime(const int &length);
+Bigint rho_safe_generate_prime(const int &length);
 bool coprime(const Bigint &a, const Bigint &b);
 Bigint gcd(Bigint a, Bigint b);
-Key generate_key(const int &lenght = 2048);
+Key generate_key(const int &lenght = 2048, const std::string &generator = SIMPLE_GENERATOR);
 std::string generate_password(int length);
-Bigint generate_prime(const int &lenght);
+Bigint generate_prime(const int &length, const std::string &generator);
 std::string hash_func(const std::string &string);
 bool miller_rabin_test(const Bigint &candidate, const Bigint &cycles);
 Bigint modulo_inverse(const Bigint &inverse_of, const Bigint &modulus);
